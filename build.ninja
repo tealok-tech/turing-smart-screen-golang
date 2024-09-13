@@ -5,4 +5,4 @@ rule compile-go
   command = go build -o $out $in
   description = Compile go
 
-build out/example-simple: compile-go examples/simple/main.go
+build out/example-simple: compile-go examples/simple/main.go | pkg/lcd/rev_a/lcd_a.go
