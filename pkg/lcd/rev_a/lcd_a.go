@@ -267,12 +267,8 @@ func NewLcdCommA(deviceName string) (*LcdCommA, error) {
 		return nil, err
 	}
 
-	n := 0
 	revision := make([]byte, 6)
-	n, err = port.Read(revision)
-	if n != 6 {
-		return nil, fmt.Errorf("Expected 6 bytes, got %v", n)
-	}
+	_, err = port.Read(revision)
 	if err != nil {
 		return nil, err
 	}
